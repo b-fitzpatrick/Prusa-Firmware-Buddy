@@ -657,7 +657,7 @@
  */
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 280 } //E0 280 295
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 100, 100, 400, 325 } //E0 280 295
+    { 100, 100, 400, 280 } //E0 280 295
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 800, 800, 3200, 1120 } //E0 280 295
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 1120 } //E0 280 295
 
@@ -838,7 +838,7 @@
  *    (0,0)
  */
 #define NOZZLE_TO_PROBE_OFFSET \
-    { -29, -3, 0 }
+    { 23, 5, 0 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 5
@@ -879,8 +879,8 @@
 #define Z_PROBE_LOW_POINT -2 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
-#define Z_PROBE_OFFSET_RANGE_MIN -20
-#define Z_PROBE_OFFSET_RANGE_MAX 20
+#define Z_PROBE_OFFSET_RANGE_MIN -50
+#define Z_PROBE_OFFSET_RANGE_MAX 50
 
 // Enable the M48 repeatability test to test probe accuracy
 //#define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -952,7 +952,7 @@
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
-#define X_HOME_DIR 1
+#define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 
@@ -1117,7 +1117,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
     // Set the number of grid points per dimension.
-    #define GRID_MAX_POINTS_X 4
+    #define GRID_MAX_POINTS_X 5
     #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
 // Set the boundaries for probing (where the probe can reach).
@@ -1226,7 +1226,7 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-#define MANUAL_X_HOME_POS 180.4
+//#define MANUAL_X_HOME_POS 0
 //#define MANUAL_Y_HOME_POS 0
 //#define MANUAL_Z_HOME_POS 0
 
@@ -1242,8 +1242,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-    #define Z_SAFE_HOMING_X_POINT (147.4) // X point for Z homing when homing all axes (G28).
-    #define Z_SAFE_HOMING_Y_POINT (21.1) // Y point for Z homing when homing all axes (G28).
+    #define Z_SAFE_HOMING_X_POINT (28) // X point for Z homing when homing all axes (G28).
+    #define Z_SAFE_HOMING_Y_POINT (10) // Y point for Z homing when homing all axes (G28).
 #endif
 
 // Homing speeds (mm/m)
@@ -1382,7 +1382,7 @@
 #if ENABLED(NOZZLE_PARK_FEATURE)
     // Specify a park position as { X, Y, Z }
     #define NOZZLE_PARK_POINT \
-        { (X_MAX_POS - 10), (Y_MAX_POS - 10), 20 }
+        { 0, (Y_MAX_POS - 10), 20 }
         #define NOZZLE_PARK_POINT_M600 \
         { (X_MIN_POS + 10), (Y_MIN_POS + 10), 20 }
     #define NOZZLE_PARK_XY_FEEDRATE 100 // (mm/s) X and Y axes feedrate (also used for delta Z axis)

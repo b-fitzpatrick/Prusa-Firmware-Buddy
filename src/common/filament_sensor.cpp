@@ -214,7 +214,7 @@ static void _injectM600() {
 }
 
 static void _cycle0() {
-    if (fSensor.read() == Pin::State::high) {
+    if (fSensor.read() == Pin::State::low) {
         fSensor.pullDown();
         status.meas_cycle = 1; //next cycle shall be 1
     } else {
@@ -245,7 +245,7 @@ static void _cycle0() {
 //called only in fs_cycle
 static void _cycle1() {
     //pulldown was set in cycle 0
-    _set_state(fSensor.read() == Pin::State::high ? fsensor_t::HasFilament : fsensor_t::NotConnected);
+    _set_state(fSensor.read() == Pin::State::low ? fsensor_t::HasFilament : fsensor_t::NotConnected);
     fSensor.pullUp();
     status.meas_cycle = 0; //next cycle shall be 0
 }

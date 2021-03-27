@@ -838,7 +838,7 @@
  *    (0,0)
  */
 #define NOZZLE_TO_PROBE_OFFSET \
-    { 23, 5, 0 }
+    { 23, 0, 0 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 5
@@ -1243,7 +1243,7 @@
 
 #if ENABLED(Z_SAFE_HOMING)
     #define Z_SAFE_HOMING_X_POINT (28) // X point for Z homing when homing all axes (G28).
-    #define Z_SAFE_HOMING_Y_POINT (10) // Y point for Z homing when homing all axes (G28).
+    #define Z_SAFE_HOMING_Y_POINT (5) // Y point for Z homing when homing all axes (G28).
 #endif
 
 // Homing speeds (mm/m)
